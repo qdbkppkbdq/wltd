@@ -1,0 +1,3 @@
+/DATA/disk0/233-back/home/weilai/vmsync/td/cmake-build-debug/CMakeFiles/td.dir
+/DATA/disk0/233-back/home/weilai/vmsync/td/cmake-build-debug/CMakeFiles/edit_cache.dir
+/DATA/disk0/233-back/home/weilai/vmsync/td/cmake-build-debug/CMakeFiles/rebuild_cache.dir

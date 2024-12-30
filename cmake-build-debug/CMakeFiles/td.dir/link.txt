@@ -1,0 +1,1 @@
+/usr/bin/c++  -O3 -g CMakeFiles/td.dir/src/event.cpp.o CMakeFiles/td.dir/main.cpp.o -o td 
