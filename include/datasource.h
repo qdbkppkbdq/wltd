@@ -3,18 +3,18 @@
 
 #include <string>
 #include "dataEntry.h"
-
+#include "enum.h"
 class DataSource
 {
     public:
-        DataSource();
-        virtual ~DataSource();
-        virtual void Init(void* config);
-        virtual void Start();
-        virtual void Stop();
+        DataSource()= default;
+        virtual ~DataSource()= default;
+        virtual TraderResult Init(void* config)=0;
+        virtual TraderResult Start()=0;
+        virtual TraderResult Stop()=0;
     private:
-        virtual void publishData(dataType data);
-        virtual dataType formatData(const std::string& data, const std::string& format);
+        virtual TraderResult publishData(dataType data)=0;
+        virtual dataType formatData(const std::string& data, const std::string& format)=0;
 };
 
 #endif // DATASOURCE_H

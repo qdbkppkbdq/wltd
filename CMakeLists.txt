@@ -14,7 +14,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 include_directories(${PROJECT_SOURCE_DIR}/include)
 
 # 添加 src 目录下的所有源文件
-file(GLOB SOURCES "src/*.cpp")
+file(GLOB SOURCES "src/*.cpp"  "src/*.cc" "src/data/*.cc"  "src/data/*.cpp")
 
 # 添加 main.cpp
 list(APPEND SOURCES "main.cpp")

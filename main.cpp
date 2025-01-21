@@ -7,11 +7,15 @@
 #include <thread>
 #include <mutex>
 #include <condition_variable>
+#include <chrono>
+#include <thread>
 
 
 #include "event.h"
 #include "utils.h"
 #include "enum.h"
+#include "webdatasource.h"
+
 void test_enum() {
     std::cout << "TraderResult::TRADER_RESULT_SUCCESS: " << TraderResultStr(TraderResult::TRADER_RESULT_SUCCESS) << std::endl;
     std::cout << "TraderResult::TRADER_RESULT_FAILURE: " << TraderResultStr(TraderResult::TRADER_RESULT_FAILURE) << std::endl;
@@ -47,9 +51,36 @@ void test_event_engine() {
     engineThread.join();
 }
 // 示例使用
+webdatasourceconfigtype config = {
+    .url = "http://qt.gtimg.cn",
+    .username = "",
+    .password = "",
+    .querylist = {"/q=sh600000"},
+    .formatter = [](const std::string& data, const std::string& type) -> dataType {
+        std::cout << "Formatting data: " << data << " with format: " << type << "\n";
+        return dataType();
+    }
+};
+
+class MyWebDataSource : public WebDataSource {
+public:
+    TraderResult Init(void* config) override {
+        return WebDataSource::Init(config);
+    }
+};
+
+void test_webdatasource() {
+    MyWebDataSource webDataSource;
+    webDataSource.Init(&config);
+    webDataSource.Start();
+    std::this_thread::sleep_for(std::chrono::seconds(10));
+    webDataSource.Stop();
+}
+
 int main() {
-    test_enum();
-    test_singleton();
-    test_event_engine();
+//    test_enum();
+//    test_singleton();
+//    test_event_engine();
+    test_webdatasource();
     return 0;
 }

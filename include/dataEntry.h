@@ -6,8 +6,9 @@
 #define TD_DATAENTRY_H
 
 #include <cstdint>
-
-class DataEntry {
+#include <string>
+struct DataEntry {
+    char name[10];
     uint64_t timestamp;
     double ask_high;
     double ask_low;

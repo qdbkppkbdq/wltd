@@ -26,7 +26,26 @@ inline const char* NAME##Str(NAME value) { \
 ENUM_DEF(TraderResult, TRADER_RESULT)
 #undef TRADER_RESULT
 
+//time enum
+#define TRADER_TIME_TYPE(XX) \
+    XX(TIME_TYPE_MILLISECOND, "millisecond") \
+    XX(TIME_TYPE_MICROSECOND, "microsecond") \
+    XX(TIME_TYPE_NANOSECOND, "nanosecond") \
+    XX(TIME_TYPE_SECOND, "second") \
+    XX(TIME_TYPE_MINUTE, "minute") \
+    XX(TIME_TYPE_HOUR, "hour") \
+    XX(TIME_TYPE_DAY, "day") \
+    XX(TIME_TYPE_WEEK, "week") \
+    XX(TIME_TYPE_MONTH, "month") \
+    XX(TIME_TYPE_YEAR, "year")
+ENUM_DEF(TraderTimeType, TRADER_TIME_TYPE)
+#undef TRADER_TIME_TYPE
 
+
+#define RING_BUFFER_DEF(XX) \
+    XX(RING_BUFFER_TRADE_DATA, "trade_data")
+ENUM_DEF(RingBufferType, RING_BUFFER_DEF)
+#undef RING_BUFFER_DEF
 
 #undef ENUM_DEF
 #undef ENUM_ENTRY

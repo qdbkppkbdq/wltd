@@ -1,4 +1,6 @@
-// 角色上下文
+#ifndef EVENT_H
+#define EVENT_H
+
 #include <string>
 #include <unordered_map>
 #include <functional>
@@ -6,6 +8,8 @@
 #include <vector>
 #include <mutex>
 #include <condition_variable>
+
+// 角色上下文
 struct RoleContext {
     std::string state;
 };
@@ -47,3 +51,5 @@ private:
     std::mutex queueMutex;
     std::condition_variable queueCondition;
 };
+
+#endif // EVENT_H
